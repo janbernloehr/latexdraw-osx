@@ -1,4 +1,5 @@
 package net.sf.latexdraw;
+import net.sf.latexdraw.ui.MacOSApplicationHelper;
 
 import java.io.File;
 
@@ -47,8 +48,8 @@ public final class LaTeXDraw {
 		final int size = 30;
 		UndoCollector.INSTANCE.setSizeMax(size);
 		ActionsRegistry.INSTANCE.setSizeMax(size);
-
-		// Creating the required directories.
+		
+				// Creating the required directories.
 		LPath.INSTANCE.checkDirectories();
 
 		// Settings the theme.
@@ -93,6 +94,8 @@ public final class LaTeXDraw {
 		splashScreen.setVisible(true);
 		// Creation of the main frame.
     	LFrame frame = new LFrame(splashScreen);
+    	// Apply MacOSX enhancements when running on osx.
+    	MacOSApplicationHelper.EnableOSXEnhancementsIfNeccessary(frame);
     	// Creation of the UI composer.
     	UIComposer composer = new LUIComposer(frame, splashScreen);
     	// Composing the user interface.

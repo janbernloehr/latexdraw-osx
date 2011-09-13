@@ -65,6 +65,11 @@ public final class Theme {
 	public void setTheme() {
 		try{
 			lookAndFeel = Theme.INSTANCE.readTheme();
+			
+			if (lookAndFeel == "javax.swing.plaf.mac.MacLookAndFeel") {
+				System.setProperty("apple.laf.useScreenMenuBar", "true"); //$NON-NLS-1$ //$NON-NLS-2$
+			}
+			
      		UIManager.setLookAndFeel(lookAndFeel);
 		}
 		catch(final Exception ex) { BadaboomCollector.INSTANCE.add(ex); }
@@ -83,7 +88,6 @@ public final class Theme {
 		else if(LSystem.INSTANCE.isVista() || LSystem.INSTANCE.isXP() || LSystem.INSTANCE.isSeven())
 			laf = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"; //$NON-NLS-1$
 		else if(LSystem.INSTANCE.isMacOSX()) {
-			System.setProperty("apple.laf.useScreenMenuBar", "true"); //$NON-NLS-1$ //$NON-NLS-2$
 			laf = "javax.swing.plaf.mac.MacLookAndFeel"; //$NON-NLS-1$
 		}
 		else laf = UIManager.getCrossPlatformLookAndFeelClassName();

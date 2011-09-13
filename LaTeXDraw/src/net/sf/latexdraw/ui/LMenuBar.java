@@ -1,5 +1,6 @@
 package net.sf.latexdraw.ui;
 
+import java.awt.Toolkit;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
@@ -10,6 +11,7 @@ import org.malai.widget.MCheckBoxMenuItem;
 import org.malai.widget.MMenu;
 
 import net.sf.latexdraw.lang.LangTool;
+import net.sf.latexdraw.util.LSystem;
 
 /**
  * This class defines the menu bar of the interactive system.<br>
@@ -89,8 +91,13 @@ public class LMenuBar extends JMenuBar {
 		editMenu.add(frame.paster.getCutMenu());
 		editMenu.add(frame.paster.getCopyMenu());
 		editMenu.add(frame.paster.getPasteMenu());
-		editMenu.addSeparator();
-		editMenu.add(frame.prefActivator.getShowPreferencesMenu());
+		
+		if (!LSystem.INSTANCE.isMacOSX()) {
+			// OSX offers a special preferences Menu Item common for all applications.
+			// We should use that and do not display this separate item.
+			editMenu.addSeparator();
+			editMenu.add(frame.prefActivator.getShowPreferencesMenu());
+		}
 
 		add(editMenu);
 	}
@@ -101,8 +108,12 @@ public class LMenuBar extends JMenuBar {
 		helpMenu.add(frame.helper.getReportBugItem());
 		helpMenu.add(frame.helper.getForumItem());
 		helpMenu.add(frame.helper.getDonateItem());
-		helpMenu.addSeparator();
-		helpMenu.add(frame.helper.getAboutItem());
+		if (!LSystem.INSTANCE.isMacOSX()) {
+			// OSX offers a special about Menu Item common for all applications.
+			// We should use that and do not display this separate item.
+			helpMenu.addSeparator();
+			helpMenu.add(frame.helper.getAboutItem());
+		}
 		add(helpMenu);
 	}
 
@@ -126,7 +137,7 @@ public class LMenuBar extends JMenuBar {
         menuCBItem = frame.codePanelActivator.getCloseMenuItem();
         menuCBItem.setSelected(true);
         displayMenu.addSeparator();
-        menuCBItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,InputEvent.CTRL_MASK));
+        menuCBItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         displayMenu.add(menuCBItem);
 	}
 }

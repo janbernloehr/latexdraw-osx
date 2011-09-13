@@ -135,7 +135,7 @@ public class Helper extends Instrument {
 	 * @return The created latexdraw dialogue box.
 	 * @since 3.0
 	 */
-	protected AboutDialogueBox initialiseAboutFrame() {
+	public AboutDialogueBox initialiseAboutFrame() {
 		if(aboutFrame==null)
 			aboutFrame = new AboutDialogueBox();
 		return aboutFrame;

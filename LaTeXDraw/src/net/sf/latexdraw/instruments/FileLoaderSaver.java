@@ -170,7 +170,7 @@ public class FileLoaderSaver extends Instrument {
 	protected void initialiseLinks() {
 		try{
 			links.add(new ButtonClose2SaveLink(this));
-			links.add(new ShortCut2SaveLink(this));
+			links.add(new Shortcut2SaveLink(this));
 			links.add(new Button2SaveLink(this));
 			links.add(new Menu2SaveLink(this));
 			links.add(new Shortcut2SaveLink(this));
@@ -390,13 +390,13 @@ class ShortCut2NewLink extends Interaction2NewLink<KeysPressure> {
 /**
  * This link maps a keyboard shortcut to an action that saves the preferences.
  */
-class ShortCut2SaveLink extends Interaction2SaveLink<KeysPressure> {
+class Shortcut2SaveLink extends Interaction2SaveLink<KeysPressure> {
 	/**
 	 * The constructor by default.
 	 * @param fileLoader The file loader/saver;
 	 * @since 3.0
 	 */
-	public ShortCut2SaveLink(final FileLoaderSaver fileLoader) throws InstantiationException, IllegalAccessException {
+	public Shortcut2SaveLink(final FileLoaderSaver fileLoader) throws InstantiationException, IllegalAccessException {
 		super(fileLoader, KeysPressure.class);
 	}
 
@@ -415,6 +415,32 @@ class ShortCut2SaveLink extends Interaction2SaveLink<KeysPressure> {
 	}
 }
 
+//
+///**
+// * This link maps a keyboard shortcut to a save action.
+// */
+//class Shortcut2SaveLink extends Interaction2SaveLink<KeysPressure> {
+//	/**
+//	 * Creates the link.
+//	 */
+//	public Shortcut2SaveLink(final FileLoaderSaver fileLoader) throws InstantiationException, IllegalAccessException {
+//		super(fileLoader, KeysPressure.class);
+//	}
+//
+//	@Override
+//	public boolean isConditionRespected() {
+//		final List<Integer> keys = getInteraction().getKeys();
+//		return keys.size()==2 && keys.contains(KeyEvent.VK_S) && keys.contains(KeyEvent.VK_CONTROL);
+//	}
+//
+//	@Override
+//	public void initAction() {
+//		super.initAction();
+//		action.setSaveAs(false);
+//		action.setSaveOnClose(false);
+//	}
+//}
+//
 
 
 /**
@@ -495,31 +521,6 @@ abstract class Interaction2SaveLink<I extends Interaction> extends Link<SaveDraw
 	}
 }
 
-
-/**
- * This link maps a keyboard shortcut to a save action.
- */
-class Shortcut2SaveLink extends Interaction2SaveLink<KeysPressure> {
-	/**
-	 * Creates the link.
-	 */
-	public Shortcut2SaveLink(final FileLoaderSaver fileLoader) throws InstantiationException, IllegalAccessException {
-		super(fileLoader, KeysPressure.class);
-	}
-
-	@Override
-	public boolean isConditionRespected() {
-		final List<Integer> keys = getInteraction().getKeys();
-		return keys.size()==2 && keys.contains(KeyEvent.VK_S) && keys.contains(KeyEvent.VK_CONTROL);
-	}
-
-	@Override
-	public void initAction() {
-		super.initAction();
-		action.setSaveAs(false);
-		action.setSaveOnClose(false);
-	}
-}
 
 
 /**

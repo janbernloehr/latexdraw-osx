@@ -1,8 +1,12 @@
 package org.malai.widget;
 
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import org.malai.picking.Pickable;
 import org.malai.picking.Picker;
