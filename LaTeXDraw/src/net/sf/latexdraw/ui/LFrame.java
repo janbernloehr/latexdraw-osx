@@ -67,7 +67,7 @@ import net.sf.latexdraw.util.LResources;
  *  PURPOSE. See the GNU General Public License for more details.<br>
  * <br>
  * 03/11/08<br>
- * @author Arnaud BLOUIN
+ * @author Arnaud BLOUIN 
  * @version 3.0
  */
 public class LFrame extends UI {

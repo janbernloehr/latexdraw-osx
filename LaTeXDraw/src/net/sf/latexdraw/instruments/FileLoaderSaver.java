@@ -382,7 +382,7 @@ class ShortCut2NewLink extends Interaction2NewLink<KeysPressure> {
 	@Override
 	public boolean isConditionRespected() {
 		final List<Integer> keys = getInteraction().getKeys();
-		return keys.size()==2 && keys.contains(KeyEvent.VK_N) && keys.contains(KeyEvent.VK_CONTROL);
+		return keys.size()==2 && keys.contains(KeyEvent.VK_N) && keys.contains(getInteraction().getControlKey());
 	}
 }
 
@@ -411,7 +411,7 @@ class Shortcut2SaveLink extends Interaction2SaveLink<KeysPressure> {
 	@Override
 	public boolean isConditionRespected() {
 		final List<Integer> keys = getInteraction().getKeys();
-		return keys.size()==2 && keys.contains(KeyEvent.VK_W) && keys.contains(KeyEvent.VK_CONTROL);
+		return keys.size()==2 && keys.contains(KeyEvent.VK_W) && keys.contains(getInteraction().getControlKey());
 	}
 }
 
@@ -430,7 +430,7 @@ class Shortcut2SaveLink extends Interaction2SaveLink<KeysPressure> {
 //	@Override
 //	public boolean isConditionRespected() {
 //		final List<Integer> keys = getInteraction().getKeys();
-//		return keys.size()==2 && keys.contains(KeyEvent.VK_S) && keys.contains(KeyEvent.VK_CONTROL);
+//		return keys.size()==2 && keys.contains(KeyEvent.VK_S) && keys.contains(getInteraction().getControlKey());
 //	}
 //
 //	@Override
@@ -612,7 +612,7 @@ class Shortcut2LoadLink extends Interaction2LoadLink<KeysPressure> {
 	@Override
 	public boolean isConditionRespected() {
 		final List<Integer> keys = getInteraction().getKeys();
-		return keys.size()==2 && keys.contains(KeyEvent.VK_O) && keys.contains(KeyEvent.VK_CONTROL);
+		return keys.size()==2 && keys.contains(KeyEvent.VK_O) && keys.contains(getInteraction().getControlKey());
 	}
 }
 

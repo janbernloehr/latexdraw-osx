@@ -9,6 +9,7 @@ import net.sf.latexdraw.actions.SelectShapes;
 import net.sf.latexdraw.badaboom.BadaboomCollector;
 import net.sf.latexdraw.glib.models.interfaces.IDrawing;
 import net.sf.latexdraw.util.LResources;
+import net.sf.latexdraw.util.LSystem;
 
 import org.malai.action.Action;
 import org.malai.action.ActionsRegistry;
@@ -181,7 +182,7 @@ class Shortcut2CopyShapes extends Interaction2AbstractCopy<CopyShapes, KeysPress
 	@Override
 	public boolean isConditionRespected() {
 		return getInteraction().getKeys().size()==2 && getInteraction().getKeys().contains(KeyEvent.VK_C) &&
-				getInteraction().getKeys().contains(KeyEvent.VK_CONTROL);
+				getInteraction().getKeys().contains(getInteraction().getControlKey());
 	}
 }
 
@@ -200,7 +201,7 @@ class Shortcut2CutShapes extends Interaction2AbstractCopy<CutShapes, KeysPressur
 	@Override
 	public boolean isConditionRespected() {
 		return getInteraction().getKeys().size()==2 && getInteraction().getKeys().contains(KeyEvent.VK_X) &&
-				getInteraction().getKeys().contains(KeyEvent.VK_CONTROL);
+				getInteraction().getKeys().contains(getInteraction().getControlKey());
 	}
 }
 
@@ -288,7 +289,7 @@ class Shortcut2PasteShapes extends Interaction2PasteShapes<KeysPressure> {
 	@Override
 	public boolean isConditionRespected() {
 		return getInteraction().getKeys().size()==2 && getInteraction().getKeys().contains(KeyEvent.VK_V) &&
-				getInteraction().getKeys().contains(KeyEvent.VK_CONTROL);
+				getInteraction().getKeys().contains(getInteraction().getControlKey());
 	}
 }
 

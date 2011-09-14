@@ -1,7 +1,10 @@
 package org.malai.interaction.library;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+
+import net.sf.latexdraw.util.LSystem;
 
 import org.malai.interaction.Interaction;
 import org.malai.interaction.IntermediaryState;
@@ -113,6 +116,13 @@ public class KeysPressure extends Interaction {
 	 */
 	public List<Integer> getKeys() {
 		return keys;
+	}
+	
+	public int getControlKey() {
+		if (LSystem.INSTANCE.isMacOSX()) {
+			return KeyEvent.VK_META;
+		}
+			return KeyEvent.VK_CONTROL;
 	}
 
 
