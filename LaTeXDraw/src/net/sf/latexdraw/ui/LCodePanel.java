@@ -135,9 +135,6 @@ public class LCodePanel extends MPanel implements ConcretePresentation, ActionHa
 			pstGenerator.updateFull();
 			String text = pstGenerator.getCache().toString();
 			editorPane.setText(text);
-			
-			//// Displays a visual aid to show the user, whether the document is in a modified state.
-			//this.getRootPane().putClientProperty("Window.documentModified", text != null && text.length() > 0);
 		}
 	}
 

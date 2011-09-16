@@ -182,7 +182,7 @@ class Shortcut2CopyShapes extends Interaction2AbstractCopy<CopyShapes, KeysPress
 	@Override
 	public boolean isConditionRespected() {
 		return getInteraction().getKeys().size()==2 && getInteraction().getKeys().contains(KeyEvent.VK_C) &&
-				getInteraction().getKeys().contains(getInteraction().getControlKey());
+				getInteraction().getKeys().contains(LSystem.INSTANCE.getControlKey());
 	}
 }
 
@@ -201,7 +201,7 @@ class Shortcut2CutShapes extends Interaction2AbstractCopy<CutShapes, KeysPressur
 	@Override
 	public boolean isConditionRespected() {
 		return getInteraction().getKeys().size()==2 && getInteraction().getKeys().contains(KeyEvent.VK_X) &&
-				getInteraction().getKeys().contains(getInteraction().getControlKey());
+				getInteraction().getKeys().contains(LSystem.INSTANCE.getControlKey());
 	}
 }
 
@@ -289,7 +289,7 @@ class Shortcut2PasteShapes extends Interaction2PasteShapes<KeysPressure> {
 	@Override
 	public boolean isConditionRespected() {
 		return getInteraction().getKeys().size()==2 && getInteraction().getKeys().contains(KeyEvent.VK_V) &&
-				getInteraction().getKeys().contains(getInteraction().getControlKey());
+				getInteraction().getKeys().contains(LSystem.INSTANCE.getControlKey());
 	}
 }
 
