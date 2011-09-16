@@ -137,7 +137,6 @@ public class LMenuBar extends JMenuBar {
         menuCBItem = frame.codePanelActivator.getCloseMenuItem();
         menuCBItem.setSelected(true);
         displayMenu.addSeparator();
-        menuCBItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         displayMenu.add(menuCBItem);
 	}
 }

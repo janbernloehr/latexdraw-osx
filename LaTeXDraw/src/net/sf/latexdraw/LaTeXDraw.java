@@ -95,7 +95,7 @@ public final class LaTeXDraw {
 		// Creation of the main frame.
     	LFrame frame = new LFrame(splashScreen);
     	// Apply MacOSX enhancements when running on osx.
-    	MacOSApplicationHelper.EnableOSXEnhancementsIfNeccessary(frame);
+    	MacOSApplicationHelper.enableOSXEnhancementsIfNeccessary(frame);
     	// Creation of the UI composer.
     	UIComposer composer = new LUIComposer(frame, splashScreen);
     	// Composing the user interface.

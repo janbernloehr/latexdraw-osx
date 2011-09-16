@@ -41,7 +41,7 @@ public class MacOSApplicationHelper {
 	 * Creates the helper class.
 	 * @since 3.0
 	 */
-	private MacOSApplicationHelper(LFrame frm) {
+	private MacOSApplicationHelper(final LFrame frm) {
 		this.frame = frm;
 		Application app = Application.getApplication();
 		
@@ -56,7 +56,7 @@ public class MacOSApplicationHelper {
 	 * to make LaTeXDraw feel like a native OSX application.
 	 * @since 3.0
 	 */
-	public static void EnableOSXEnhancementsIfNeccessary(LFrame frame) {
+	public static void enableOSXEnhancementsIfNeccessary(final LFrame frame) {
 		if (LSystem.INSTANCE.isMacOSX() & helper == null) {
 			helper = new MacOSApplicationHelper(frame);
 		}
@@ -69,7 +69,7 @@ public class MacOSApplicationHelper {
 	class MyAboutHandler implements AboutHandler {
 
 		@Override
-		public void handleAbout(AboutEvent arg0) {
+		public void handleAbout(final AboutEvent arg0) {
 			AboutDialogueBox aboutFrame = frame.helper.initialiseAboutFrame();
 			
 			aboutFrame.setVisible(true);
@@ -84,7 +84,7 @@ public class MacOSApplicationHelper {
 	class MyPreferencesHandler implements PreferencesHandler {
 
 		@Override
-		public void handlePreferences(PreferencesEvent arg0) {
+		public void handlePreferences(final PreferencesEvent arg0) {
 			PreferencesFrame preferencesFrame = frame.prefActivator.initialisePreferencesFrame();
 			
 			preferencesFrame.setVisible(true);
