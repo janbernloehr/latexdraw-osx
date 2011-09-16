@@ -118,13 +118,6 @@ public class KeysPressure extends Interaction {
 		return keys;
 	}
 	
-	public int getControlKey() {
-		if (LSystem.INSTANCE.isMacOSX()) {
-			return KeyEvent.VK_META;
-		}
-			return KeyEvent.VK_CONTROL;
-	}
-
 
 	/**
 	 * @return The object that produced the interaction.
